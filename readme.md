@@ -1,5 +1,9 @@
-# Pre-setup, install Heroku CLI:
-https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up
+# Setup Heroku CLI:
+Windows 64-bit: https://cli-assets.heroku.com/heroku-x64.exe
+Mac: https://cli-assets.heroku.com/heroku.pkg
+
+# Login to Heroku:
+heroku login
 
 # Setup:
 heroku create
