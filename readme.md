@@ -17,6 +17,7 @@ git push heroku master
 
 # Run Locally:
 (npm install)
+
 heroku local web
 
 
