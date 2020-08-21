@@ -1,16 +1,18 @@
-# Setup Heroku CLI:
+# Install Heroku CLI:
 Windows 64-bit: https://cli-assets.heroku.com/heroku-x64.exe
 Mac: https://cli-assets.heroku.com/heroku.pkg
 
 # Login to Heroku:
 heroku login
 
-# Setup:
+# Create Heroku Space locally:
 heroku create
 
 # Push changes:
 git add .
+
 git commit -m “any message”
+
 git push heroku master
 
 # Run Locally:
