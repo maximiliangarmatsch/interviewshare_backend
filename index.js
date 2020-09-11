@@ -3,11 +3,26 @@ const { ApolloServer, gql } = require('apollo-server');
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
 // your data.
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://isadb:2020ISAproj@isa.9prx6.mongodb.net/isa-db?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+
+
+
+//  const books =  collection.findOne(( error ,book ) => {
+//      if(error) {return console.log('Unable to connect to datasource')}
+//           return book;
+//         })
+//   client.close();
+// });
+
 const typeDefs = gql`
   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
 
   # This "Book" type defines the queryable fields for every book in our data source.
   type Book {
+    _id: String
     title: String
     author: String
   }
@@ -19,16 +34,33 @@ const typeDefs = gql`
     books: [Book]
   }
 `;
-const books = [
-    {
-      title: 'Harry Potter and the Chamber of Secrets',
-      author: 'J.K. Rowling',
-    },
-    {
-      title: 'Jurassic Park',
-      author: 'Michael Crichton',
-    },
-  ];
+const books = [];
+client.connect((err, db) => {
+  const collection = db.db("isa-db").collection("books");
+  // perform actions on the collection object
+  // collection.insertOne({
+  //   title:"New Book",
+  //   author : "Umer"
+  // });
+
+ collection.find({}).toArray((err, result) => {
+    if (err) return console.log("Unable to connect");
+   if (result){
+      console.log("Fetched Successfully");
+      result.forEach(book => {
+        books.push(book);
+      });
+     
+      console.log("Successfully fetched books");
+
+    };
+    
+    client.close();
+  })
+
+});
+
+
   // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
 const resolvers = {
