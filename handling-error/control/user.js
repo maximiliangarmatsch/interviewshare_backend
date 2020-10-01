@@ -1,4 +1,3 @@
-
 const ApiError = require('../error/ApiError');
 
 class UserControl {
@@ -12,6 +11,4 @@ class UserControl {
   }
 }
 
-
-
- module.exports = new UserControl();
+module.exports = new UserControl();
