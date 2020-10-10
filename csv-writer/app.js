@@ -64,6 +64,6 @@ table = new pdftable(pdf, {
        pdf.end()
        pdf.pipe(fs.createWriteStream('output.pdf'))
 
-       app.listen(3000, (req, res) => {
+       app.listen(3000, (request, response) => {
        	console.log('Server is up on port 3000')
        })
