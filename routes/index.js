@@ -4,4 +4,4 @@ const userControl = require('../control/user');
 const router = express();
 router.post('/user', userControl.user);
 
- module.exports = router;
+module.exports = router;

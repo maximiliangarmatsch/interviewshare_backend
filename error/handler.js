@@ -1,15 +1,15 @@
+const { response } = require('express');
 const ApiError = require('./ApiError');
 
-function errorHandler(err, req, res, next) {
+function errorHandler(error, request, response) {
+  console.error(error);
 
-  console.error(err);
-
-  if (err instanceof ApiError) {
-    res.status(err.code).json(err.message);
+  if (error instanceof ApiError) {
+    response.status(error.code).json(error.message);
     return;
   }
 
-  res.status(500).json('something went wrong');
+  response.status(500).json('something went wrong');
 }
 
 module.exports = errorHandler;
