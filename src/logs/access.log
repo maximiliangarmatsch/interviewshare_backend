@@ -1,0 +1,4 @@
+::1 - - [06/Oct/2020:20:54:24 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36 Edg/85.0.564.68"
+::1 - - [06/Oct/2020:20:54:24 +0000] "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36 Edg/85.0.564.68"
+::1 - - [06/Oct/2020:20:55:05 +0000] "GET /user HTTP/1.1" 404 1582 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36 Edg/85.0.564.68"
+::1 - - [06/Oct/2020:20:55:05 +0000] "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/user" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36 Edg/85.0.564.68"
