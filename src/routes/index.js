@@ -1,7 +1,10 @@
-import { connectionString, testEnvironmentVariable } from '../settings/settings';
+var express = require('express');
+var router = express.Router();
 
-const express = require('express');
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  // res.render('index', { title: 'Interview Share Backend' });
+res.send("Welcome to Interview Share Backend")
+});
 
-const router = express.Router();
-router.get('/', (req, res, next) => res.status(200).json({ message: 'Welcome to Interview Share', envVars: connectionString }));
 module.exports = router;

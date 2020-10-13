@@ -1,7 +1,15 @@
-extends layout
-
-block content
-  center
-    h1= message
-    h2= error.status
-  
+doctype html
+html
+  head
+    title= title
+    
+    style
+      include ./stylesheets/error.css
+  body
+    div.wrap
+      center
+        div.banner
+          h1.error= 'Error ' + error.status 
+          h2.error= message + ' !'
+        div.copy
+          p &copy; 2020  ISA. All rights reserved | Interview Share Backend

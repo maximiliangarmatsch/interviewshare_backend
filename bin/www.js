@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+require("@babel/polyfill");
 /**
  * Module dependencies.
  */

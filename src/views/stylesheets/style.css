@@ -1,0 +1,27 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+ color:orange !important; ;
+}
+.heading {font-size: 72px;
+  color: green ;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+  background:inherit;
+
+}
+.body{
+  background-color: rgba(255, 255, 255, .15);  
+ backdrop-filter: blur(5px);
+ 
+}
+
+.error{
+  font-size: 72px;
+  color:red;
+}
+p{
+  font-size: 36px;
+}
+a {
+  color: #00B7FF;
+}

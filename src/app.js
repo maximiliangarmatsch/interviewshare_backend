@@ -5,15 +5,15 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-
 const indexRouter = require('./routes/index');
+const apiRouter = require('./routes/api');
 const router = require('../router');
 
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'jade');
 /// ///////////////////////////////////////////////////////
 
 /// //////////////////////////////////////////////////////
@@ -35,7 +35,8 @@ app.use(bodyParser.json({ type: '*/*' }));
 
 // Routes
 router(app);
-app.use('/v1', indexRouter);
+app.use('/v1', apiRouter);
+app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
@@ -51,7 +52,7 @@ app.use((err, req, res, next) => {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.status(404).json({error:'Error ' + err.status +' Page '+ err.message})
 });
 
 module.exports = app;

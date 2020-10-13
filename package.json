@@ -3,35 +3,28 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": " babel-node ./bin/www",
+    "start": " babel-node  ./bin/www.js",
     "startdev": "nodemon --exec babel-node ./bin/www",
     "dev": "nodemon ./bin/www",
     "lint": "./node_modules/.bin/eslint ./src",
     "pretty": "prettier --write '**/*.{js,json}' '!node_modules/**'",
     "postpretty": "yarn lint --fix",
-    "runQuery": "babel-node ./src/utils/queryFunctions"
+    "runQuery": "babel-node ./src/models/usersModel"
   },
   "dependencies": {
-    "@apollo/client": "^3.2.2",
-    "apollo-cache-inmemory": "^1.6.6",
-    "apollo-client": "^2.6.10",
-    "apollo-link-http": "^1.5.17",
+    "@babel/polyfill": "^7.11.5",
+    "axios": "^0.20.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
     "express": "^4.16.4",
-    "graphql": "^15.3.0",
-    "graphql-tag": "^2.11.0",
+    "fs": "^0.0.1-security",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "^1.9.1",
     "nodemon": "^2.0.4",
-    "pg": "^8.4.0",
-    "react": "^16.13.1",
-    "react-apollo": "^3.1.5",
-    "react-dom": "^16.13.1",
-    "reason-apollo": "^0.20.0"
+    "pg": "^8.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
@@ -44,7 +37,6 @@
     "eslint": "^7.10.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
-    "graphql_ppx": "^0.2.8",
     "prettier": "^2.1.2"
   }
 }
