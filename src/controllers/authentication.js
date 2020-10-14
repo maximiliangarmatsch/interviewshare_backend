@@ -5,7 +5,7 @@ exports.signin = function (req, res, next) {
   const { email } = req.body;
   const { password } = req.body;
   if (!email || !password){
-    res.status(403).json({error:"Email or Password not provided"})
+    res.status(422).json({error:"Email or Password not provided"})
   }else{
    // See if a user with given email exists
   checkUser(email,(data )=>{

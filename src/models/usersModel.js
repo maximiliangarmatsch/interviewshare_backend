@@ -37,7 +37,7 @@ module.exports =  {
                   };
                        
                         if(searchResults[0] == undefined){
-                          return callback(new Error('User in Found'))
+                          return callback(new Error('User not Found'))
                          
                         
                       }else{
