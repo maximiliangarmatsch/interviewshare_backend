@@ -6,7 +6,9 @@ public
 /coverage
 /cypress/screenshots
 /cypress/videos
-
+#env and settings
+/src/settings/settings.js
+.env
 # production
 /build
 /translations
