@@ -47,7 +47,7 @@ module.exports =  {
                       
                     
                        
-                   }).catch(err => console.error(err))
+                   }).catch(err => {return callback(new Error('Unable to connect to services ,Internet Down'),null)})
                
             },
         findById:  async function ajaxSearchAxios(id ,callback){
@@ -95,10 +95,62 @@ module.exports =  {
                         
                       
                          
-                     }).catch(err => console.error(err))
+                     }).catch(err => {return callback(err,null)})
                  
 
             },
+            fetchById:  async function ajaxSearchAxios(id ,callback){
+              var searchResults =[] ;
+              var $id = id      
+              const result = await axios({
+                          method: "POST",
+                          headers: { "Content-Type": "application/json", "x-hasura-admin-secret":"CODERCONSULTING"},
+                          url: "https://known-bass-99.hasura.app/v1/graphql",
+                          data: {
+                              query: `
+                              query ($id :uuid ){
+                                  Employer(where: {id: {_eq: $id}}) {
+                                    name,
+                                    email,
+                                    vat,
+                                    password
+                                    
+                                  }
+                                  Candidate(where: {id: {_eq: $id}}) {
+                                    name
+                                    email
+                                    password
+                                    
+                                  }
+                                }
+                                  
+                              `,
+                              variables: { id : $id } 
+                          },
+                          responseType: 'json',
+                      }).then(
+                         res =>{
+                          
+                          for(var  data in res.data.data){
+                            for(var result in res.data.data[data]){
+                              searchResults.push(res.data.data[data][result])    
+                          };  
+                        };
+                             
+                              if(searchResults[0] == undefined){
+                                return callback(new Error('User Not Found'))
+                               
+                              
+                            }else{
+                              return callback(null ,searchResults)
+                            }
+                            
+                          
+                             
+                         }).catch(err => {return callback(err,null)})
+                     
+    
+                },
         compare : function(candidatePassword ,hashedPassword ,callback){
                   bcrypt.compare(candidatePassword, hashedPassword, function(err, isMatch) {
                     if (err) {return callback(err);}

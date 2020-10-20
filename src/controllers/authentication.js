@@ -3,17 +3,27 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt-node');
 const config = require('../settings/settings');
-const jwt = require('jwt-simple');
+const jwt = require('jsonwebtoken');
+const tokenList = {};
+
+
 
 function tokenForUser (userId){
   const timeStamp = new Date().getTime();
-  return jwt.encode({  sub : userId , iat : timeStamp },config.secret)
+  const token = jwt.sign({  sub : userId , iat : timeStamp , exp: Math.floor(Date.now() / 1000) + (60 * 60), }, config.secret)
+  const refreshToken = jwt.sign({  sub : userId , iat : timeStamp ,exp: Math.floor(Date.now() / 1000) + (60 * 60), }, config.refreshTokenSecret)
+  const access = { 
+        "token": token,
+        "refreshToken": refreshToken,
+      };
+  tokenList[refreshToken] = access
+  return access
 }
 exports.signIn = function(req ,res ,next){
     //User has already had their email and password auth'd
     //We just need to give them a token
-    console.log(req.user)
-    res.send({token: tokenForUser(req.user)})
+    res.cookie(tokenForUser(req.user))
+    res.json(tokenForUser(req.user))
 }
 exports.signup = function (req, res, next) {
   const { email } = req.body;

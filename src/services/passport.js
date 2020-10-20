@@ -14,6 +14,7 @@ const localLogin = new LocalStrategy( localOptions , function (email, password, 
     //if it is the correct email and password ,
     // otherwise ,call done with false
     checkUser(email,(err ,data )=>{
+        if (err && data == null) {return done(err,false);}
         if(err) {return done (err ,false);}
         if(data[0] == undefined || data[0] == null) {
             // res.status(403).json({error:"User Not Found"})

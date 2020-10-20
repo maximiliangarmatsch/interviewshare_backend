@@ -1,4 +1,5 @@
 const Authentication = require('./src/controllers/authentication');
+const Utils = require('./src/controllers/utils');
 const passportService = require('./src/services/passport');
 const passport = require('passport');
 
@@ -9,7 +10,8 @@ module.exports = function(app){
             res.send({hi : 'there'})
         })
         //Protected SignIn Route through middleware
-        app.post('/signin',requireSignIn, Authentication.signIn);
-        app.post('/signup', Authentication.signup);
+        app.post('/signIn',requireSignIn, Authentication.signIn);
+        app.post('/signUp', Authentication.signup);
+        app.get('/pdf',Utils.pdf)
 
 }

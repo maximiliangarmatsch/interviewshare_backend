@@ -1,66 +1,80 @@
-const express = require('express')
+
 const pdfdocument = require('pdfkit');
 var pdftable = require('voilab-pdf-table');
-const fs = require('fs');
-const pdfGeneration = express();
 
-const pdf = new pdfdocument({
-	autoFirstPage: false
-}),
-
-  table = new pdftable(pdf, {
-	 bottomMargin: 30
-})
-
- table
-      .addPlugin(new (require('voilab-pdf-table/plugins/fitcolumn'))({
-        column: 'description'
-       }))
-
-     .setColumnsDefaults({
-          headerBorder: 'B',
-          align: 'right'
+module.exports = {
+     pdf : function(res){
+        const pdf = new pdfdocument({
+            autoFirstPage: false,
+          }),
+          table = new pdftable(pdf, {
+            bottomMargin: 30,
+          });
+        
+        table
+          .addPlugin(
+            new (require('voilab-pdf-table/plugins/fitcolumn'))({
+              column: 'name',
             })
-
-     .addColumns([
-                {
-                    id: 'description',
-                    header: 'Product',
-                    align: 'left'
-                },
-                {
-                    id: 'quantity',
-                    header: 'Quantity',
-                    width: 50
-                },
-                {
-                    id: 'price',
-                    header: 'Price',
-                    width: 40
-                },
-                {
-                    id: 'total',
-                    header: 'Total',
-                    width: 70,
-                    renderer: function (tb, data) {
-                        return data.total;
-                    }
-                }
-            ])
-            .onPageAdded(function (tb) {
-                tb.addHeader();
-            });
+          )
+          .setColumnsDefaults({
+            headerBorder: 'B',
+            align: 'right',
+          })
+          .addColumns([
+            {
+              id: 'name',
+              header: 'Name',
+              align: 'left',
+            },
+            {
+              id: 'email',
+              header: 'Email',
+              width: 100,
+            },
+            {
+              id: 'job',
+              header: 'Job',
+              width: 60,
+            },
+            {
+              id: 'country',
+              header: 'Country',
+              width: 80,
+              renderer: function (tb, data) {
+                return data.country;
+              },
+            },
+          ])
+          .onPageAdded(function (tb) {
+            tb.addHeader();
+          });
         pdf.addPage();
         table.addBody([
-            {description: 'Product 1', quantity: 1, price: 20.10, total: 20.10},
-            {description: 'Product 2', quantity: 4, price: 4.00, total: 16.00},
-            {description: 'Product 3', quantity: 2, price: 17.85, total: 35.70},
-            {description: 'Product 4', quantity: 2, price: 17.85, total: 35.70},
-            {description: 'Product 5', quantity: 5, price: 17.85, total: 35.70},
-            {description: 'Product 6', quantity: 6, price: 17.85, total: 35.70}
+          {
+            name: 'Nasir',
+            email: 'nasir@gmail.com',
+            job: 'backend',
+            country: 'Indoneia',
+          },
+          {
+            name: 'Umer',
+            email: 'umer@gmail.com',
+            job: 'backend',
+            country: 'Pakistan',
+          },
+          {
+            name: 'Nikola',
+            email: 'nikola@gmail.com',
+            job: 'HR',
+            country: 'Germany',
+          },
+          { name: 'Max', email: 'max@gmail.com', job: 'backend', country: 'Germany' },
         ]);
+        
+        pdf.end();
+        pdf.pipe(res)
+     }
 
-       pdf.end()
-       pdf.pipe(fs.createWriteStream('output.pdf'))
 
-       module.exports = pdfGeneration;
+};
