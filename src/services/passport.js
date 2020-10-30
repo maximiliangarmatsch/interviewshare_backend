@@ -53,14 +53,14 @@ const jwtLogin = new JwtStrategy(jwtOptions ,function (payload ,done){
 //see if the user ID in the payload exist in our database
 //if it does, call 'done with that  other
 //otherwise, call done without a user object
-    console.log(payload.sub)
     findById(payload.sub ,function (err ,user){
-        // if (err ) {return done(err, false);}
-        console.log(user)
+        if (err ) {return done(err, false);}
+        
         if(user[0] == undefined || user[0] == null) {
             return done(null ,false);
-            // res.status(403).json({error:"User Not Found"})
+        //     res.status(403).json({error:"User Not Found"})
         }else {
+            
             done(null ,user[0])
         }
     });

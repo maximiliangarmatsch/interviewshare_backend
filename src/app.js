@@ -8,15 +8,11 @@ const fs = require('fs');
 const indexRouter = require('./routes/index');
 const apiRouter = require('./routes/api');
 const router = require('../router');
+const cors  = require('cors')
 
 const app = express();
 
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
-/// ///////////////////////////////////////////////////////
 
-/// //////////////////////////////////////////////////////
 // Logger
 app.use(logger('combined', {
   stream: fs.createWriteStream(path.join(__dirname, 'logs/access.log'), { flags: 'a' }, (err, writer) => {
@@ -32,6 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json({ type: '*/*' }));
+app.use(cors());
 
 // Routes
 router(app);
