@@ -1,6 +1,5 @@
 const Authentication = require('./src/controllers/authentication');
 const Pdf = require('./src/controllers/pdf');
-const Csv = require('./src/controllers/csv');
 require('./src/services/passport');
 const passport = require('passport');
 
@@ -20,7 +19,6 @@ module.exports = function(app){
         app.get('./logout',Authentication.logout);
      //Utils Routes
         app.get('/pdf',Pdf.create);
-        app.get('./csv',Csv.read)
         
 
 }
