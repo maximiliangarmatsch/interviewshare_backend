@@ -1,1 +1,1 @@
-web:  babel-node  ./bin/www.js
+web:  yarn run start
