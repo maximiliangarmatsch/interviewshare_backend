@@ -1,5 +1,5 @@
 const {csv} =require('../utils/csv/reader')
-exports.read = function(req ,res ,next){
+exports.reader = function(req ,res ,next){
     csv(req.filename);
     
    
