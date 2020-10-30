@@ -1,1 +1,1 @@
-yarn start
+web:  babel-node  ./bin/www.js
