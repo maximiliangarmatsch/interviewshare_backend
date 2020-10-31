@@ -32,8 +32,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe16d421-93ec-437a-bc63-4aeac79da977" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/pdf.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/pdf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/usersModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/usersModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/users.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +111,7 @@
       <workItem from="1601116384697" duration="749000" />
       <workItem from="1603483987048" duration="569000" />
       <workItem from="1603650410367" duration="325000" />
-      <workItem from="1603894158085" duration="3917000" />
+      <workItem from="1603894158085" duration="5310000" />
     </task>
     <servers />
   </component>
@@ -139,15 +143,19 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="419" y="317" width="919" height="629" key="#ESLint" timestamp="1604147664339">
+    <state x="419" y="317" width="919" height="629" key="#ESLint" timestamp="1604148580973">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="419" y="317" width="919" height="629" key="#ESLint/0.23.1792.1097@0.23.1792.1097" timestamp="1604147664339" />
+    <state x="419" y="317" width="919" height="629" key="#ESLint/0.23.1792.1097@0.23.1792.1097" timestamp="1604148580973" />
     <state x="100" y="123" width="1485" height="897" key="DiffContextDialog" timestamp="1604146571744">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="100" y="123" width="1485" height="897" key="DiffContextDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1604146571744" />
     <state x="100" y="123" width="1485" height="897" key="DiffContextDialog/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1600249595780" />
+    <state x="529" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604149326951">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="529" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1792.1097@0.23.1792.1097" timestamp="1604149326951" />
     <state x="379" y="284" width="738" height="574" key="find.popup" timestamp="1600247304524">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
