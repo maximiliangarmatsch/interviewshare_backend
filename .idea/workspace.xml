@@ -20,38 +20,20 @@
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
     </expand>
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/Nasir" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:heroku" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:heroku/master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe16d421-93ec-437a-bc63-4aeac79da977" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/handling-error/control/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/control/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handling-error/error/ApiError.js" beforeDir="false" afterPath="$PROJECT_DIR$/error/ApiError.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handling-error/error/handler.js" beforeDir="false" afterPath="$PROJECT_DIR$/error/handler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handling-error/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handling-error/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handling-error/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handling-error/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/router.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +42,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="ProjectId" id="1gMH79lewXXf0by32P9GMwOT6lR" />
   <component name="ProjectViewState">
@@ -69,19 +52,27 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.linters.configure.manually.selectedeslint" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/views/pages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -114,6 +105,9 @@
       <workItem from="1600608360789" duration="1850000" />
       <workItem from="1600874160839" duration="964000" />
       <workItem from="1601116384697" duration="749000" />
+      <workItem from="1603483987048" duration="569000" />
+      <workItem from="1603650410367" duration="325000" />
+      <workItem from="1603894158085" duration="3917000" />
     </task>
     <servers />
   </component>
@@ -131,7 +125,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Nasir" />
+                        <option value="heroku/master" />
                       </list>
                     </value>
                   </entry>
@@ -145,9 +139,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="100" y="123" width="1485" height="897" key="DiffContextDialog" timestamp="1600249595780">
+    <state x="419" y="317" width="919" height="629" key="#ESLint" timestamp="1604147664339">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
+    <state x="419" y="317" width="919" height="629" key="#ESLint/0.23.1792.1097@0.23.1792.1097" timestamp="1604147664339" />
+    <state x="100" y="123" width="1485" height="897" key="DiffContextDialog" timestamp="1604146571744">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="100" y="123" width="1485" height="897" key="DiffContextDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1604146571744" />
     <state x="100" y="123" width="1485" height="897" key="DiffContextDialog/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1600249595780" />
     <state x="379" y="284" width="738" height="574" key="find.popup" timestamp="1600247304524">
       <screen x="0" y="23" width="1792" height="1097" />
