@@ -1,8 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
 
-router.get('/', function(req, res, next) {  
-  res.send("Welcome to Interview Share Backend")
+const router = express.Router();
+
+router.get('/', (req, res, next) => {
+    res.send('Welcome to Interview Share Backend');
 });
 
 module.exports = router;
