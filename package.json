@@ -6,9 +6,7 @@
     "start": " babel-node  ./bin/www.js",
     "startdev": "nodemon --exec babel-node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "lint": "./node_modules/.bin/eslint ./src",
-    "pretty": "prettier --write '**/*.{js,json}' '!node_modules/**'",
-    "postpretty": "yarn lint --fix",
+    "standardize": "npx standard --fix",
     "runQuery": "babel-node ./src/models/usersModel"
   },
   "dependencies": {
@@ -24,7 +22,6 @@
     "express": "^4.16.4",
     "fs": "^0.0.1-security",
     "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
     "json2csv": "^5.0.3",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
@@ -45,9 +42,7 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/register": "^7.11.5",
     "@babel/runtime": "^7.11.2",
-    "eslint": "^7.10.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "prettier": "^2.1.2"
+    "eslint-plugin-import": "^2.22.1"
   }
 }

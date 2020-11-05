@@ -1,4 +1,4 @@
-export default `
+module.exports = (`
 query ($email :String! ,$name :String!, $vat :String ){
       email:Employer(where: {email: {_eq: $email}}) {
         id
@@ -11,5 +11,4 @@ query ($email :String! ,$name :String!, $vat :String ){
       }
 
 }
-    
-`
+`)

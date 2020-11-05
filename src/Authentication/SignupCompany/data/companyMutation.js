@@ -1,4 +1,4 @@
-export default `
+module.exports = (`
     mutation Insert_Employer(
                                         
         $email: String!
@@ -29,4 +29,4 @@ export default `
     }
 
     
-`;
+`)

@@ -1,4 +1,4 @@
-export default `
+module.exports = (`
     mutation Insert_Candidate(
         $name: String!                                
         $email: String!
@@ -18,7 +18,5 @@ export default `
                 id
             }
         }
-    }
-
-    
-`;
+    }  
+`)

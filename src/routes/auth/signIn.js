@@ -1,7 +1,12 @@
-const express = require('express')
-const router = express.Router()
+const { signIn: CompanySignIn } = require('../../Authentication/LoginCompany/signIn')
+const { signIn: CandidateSignIn } = require('../../Authentication/LoginCandidate/signIn')
+require('../../Middleware/passport')
+const passport = require('passport')
 
-router.get('/candidate',SignUp);
-router.get('/company', (req, res, next) => {
-    res.send('Welcome to Interview Share Backend');
-});
+const isCandidatePresent = passport.authenticate('candidate', { session: false })
+const isCompanyPresent = passport.authenticate('company', { session: false })
+
+module.exports = function (app) {
+  app.post('/signIn/company', isCompanyPresent, CompanySignIn)
+  app.post('/signIn/candidate', isCandidatePresent, CandidateSignIn)
+}
