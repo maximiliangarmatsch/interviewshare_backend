@@ -8,8 +8,8 @@
     "yarn": "1.22.10"
   },
   "scripts": {
-    "start": " babel-node  ./bin/www.js",
-    "startdev": "nodemon --exec babel-node ./bin/www",
+    "start": "babel-node ./bin/www.js --prefix ",
+    "startDev": "nodemon --exec babel-node ./bin/www",
     "dev": "nodemon ./bin/www",
     "standardize": "npx standard --fix",
     "runQuery": "babel-node ./src/models/usersModel"
