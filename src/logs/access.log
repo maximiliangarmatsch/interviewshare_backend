@@ -8,3 +8,4 @@
 ::1 - - [05/Nov/2020:19:36:11 +0000] "GET /refreshToken HTTP/1.1" 404 36 "-" "PostmanRuntime/7.26.8"
 ::1 - - [05/Nov/2020:19:36:13 +0000] "GET /refreshToken HTTP/1.1" 404 36 "-" "PostmanRuntime/7.26.8"
 ::1 - - [05/Nov/2020:22:50:44 +0000] "GET /favicon.ico HTTP/1.1" 404 36 "http://localhost:4000/pdf/create" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36 Edg/86.0.622.58"
+::1 - - [06/Nov/2020:15:47:25 +0000] "GET /pdf HTTP/1.1" 404 36 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36 Edg/86.0.622.58"

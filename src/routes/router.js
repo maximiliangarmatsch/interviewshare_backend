@@ -15,5 +15,5 @@ module.exports = function (app) {
   logout(app)
   thirdParty(app)
   pdf(app)
-  csv(app)
+  // csv(app)
 }
