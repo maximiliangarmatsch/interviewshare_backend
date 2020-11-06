@@ -2,7 +2,11 @@
   "name": "backendserver",
   "version": "0.0.0",
   "private": true,
-  "engines": { "node": "14.5.0", "npm": "6.14.5" ,"yarn" :"1.22.10"},
+  "engines": {
+    "node": "14.5.0",
+    "npm": "6.14.5",
+    "yarn": "1.22.10"
+  },
   "scripts": {
     "start": " babel-node  ./bin/www.js",
     "startdev": "nodemon --exec babel-node ./bin/www",
@@ -13,6 +17,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
     "axios": "^0.20.0",
+    "babel-cli": "^6.26.0",
     "babel-node": "^0.0.1-security",
     "bcrypt-node": "^0.1.0",
     "body-parser": "^1.19.0",
