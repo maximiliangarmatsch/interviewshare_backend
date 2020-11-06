@@ -13,7 +13,7 @@ module.exports = function (app) {
   signUp(app)
   refreshToken(app)
   logout(app)
-  // thirdParty(app)
-  // pdf(app)
-  // csv(app)
+  thirdParty(app)
+  pdf(app)
+  csv(app)
 }
