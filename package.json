@@ -3,13 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "engines": {
-    "node": "12.1.0",
-    "npm": "5.4.1",
+    "node": "14.5.0",
+    "npm": "6.14.5",
     "yarn": "1.22.10"
   },
   "scripts": {
-    "start": "node  ./bin/www.js",
-    
+    "start": " babel-node  ./bin/www.js",
     "startdev": "nodemon --exec babel-node ./bin/www",
     "dev": "nodemon ./bin/www",
     "standardize": "npx standard --fix",
