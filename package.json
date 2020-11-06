@@ -8,7 +8,8 @@
     "yarn": "1.22.10"
   },
   "scripts": {
-    "start": " babel-node  ./bin/www.js",
+    "start": "node  ./bin/www.js",
+    
     "startdev": "nodemon --exec babel-node ./bin/www",
     "dev": "nodemon ./bin/www",
     "standardize": "npx standard --fix",
