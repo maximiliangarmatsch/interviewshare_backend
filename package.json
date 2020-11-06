@@ -2,6 +2,7 @@
   "name": "backendserver",
   "version": "0.0.0",
   "private": true,
+  "engines": { "node": "14.5.0", "npm": "6.14.5" ,"yarn" :"1.22.10"},
   "scripts": {
     "start": " babel-node  ./bin/www.js",
     "startdev": "nodemon --exec babel-node ./bin/www",
