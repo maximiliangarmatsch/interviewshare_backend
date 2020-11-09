@@ -3,7 +3,7 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const Routes = require('./Routes/router')
+const Routes = require('./router')
 const logger = require('./Components/Logger/logger')
 const errorHandler = require('./Components/Error/errorhandler')
 
