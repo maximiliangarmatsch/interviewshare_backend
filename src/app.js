@@ -8,7 +8,6 @@ const logger = require('./Components/Logger/logger')
 const errorHandler = require('./Components/Error/errorhandler')
 const fileUpload = require('express-fileupload')
 
-
 //  App Setup
 const app = express()
 app.use(express.json())

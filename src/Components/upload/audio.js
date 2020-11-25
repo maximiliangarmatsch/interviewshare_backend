@@ -4,7 +4,7 @@ exports.audio = async function (req, res, next) {
   }
   const mimeType = req.files.audio.mimetype.split('/')[0]
   console.log(mimeType)
-  if (mimeType != 'audio') {
+  if (mimeType !== 'audio') {
     res.status(205).send({ Error: 'Unauthorized File Type' })
   } else {
     const fileName = Date.now() + '-' + req.files.audio.name
