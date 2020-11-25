@@ -6,6 +6,7 @@ const protectedRoutes = require('./protectedRoutes/protected')
 const thirdParty = require('./thirdParty/api')
 const pdf = require('./pdf/pdf')
 const csv = require('./csv/csv')
+const upload = require('./upload/upload')
 
 module.exports = function (app) {
   protectedRoutes(app)
@@ -16,4 +17,5 @@ module.exports = function (app) {
   thirdParty(app)
   pdf(app)
   csv(app)
+  upload(app)
 }

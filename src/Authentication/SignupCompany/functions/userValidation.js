@@ -19,7 +19,6 @@ module.exports = {
       responseType: 'json'
     }).then(
       res => {
-        console.log(res.data)
         let count = 0
         let valid = false
         for (const data in res.data.data) {

@@ -2,7 +2,7 @@ const { userValidation } = require('./functions/userValidation')
 const { companyInsert } = require('./functions/companyInsert')
 const { encrypt } = require('../../Components/encrypt')
 const { tokenForUser } = require('../token/token')
-
+const {mail} = require('../../Components/email/emailer')
 exports.SignUp = (req, res, next) => {
   const {
     email,
@@ -28,6 +28,7 @@ exports.SignUp = (req, res, next) => {
             }
             const tokenSet = tokenForUser(response.id)
             res.status(200).json({ user: response.id, token: tokenSet.token, refreshToken: tokenSet.refreshToken })
+            mail(email,"Welcome To Interview Share App")
           })
         })
       } else {
