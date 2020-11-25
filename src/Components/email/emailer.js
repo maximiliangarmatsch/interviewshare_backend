@@ -1,10 +1,11 @@
 const nodemailer = require('nodemailer')
+const config =require('../../Config/settings')
 const transporter = nodemailer.createTransport({
-  host: 'mail.smtp2go.com',
-  port: 2525,
+  host: config.smtpHost,
+  port: config.smtpPort,
   auth: {
-    user: 'MuhammadUmerFarooqi',
-    pass: 'knnZYIrN6JMN'
+    user: config.smtpAuthUser,
+    pass: config.smtpAuthPass
   }
 })
 
