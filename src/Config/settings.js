@@ -7,7 +7,7 @@ module.exports = {
   tokenLife: process.env.tokenLife,
   refreshTokenSecret: process.env.refreshTokenSecret,
   refreshTokenLife: process.env.refreshTokenLife,
-  smtpHost : process.env.smtpHost,
+  smtpHost: process.env.smtpHost,
   smtpPort: process.env.smtpPort,
   smtpAuthUser: process.env.smtpAuthUser,
   smtpAuthPass: process.env.smtpAuthPass
