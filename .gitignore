@@ -1,6 +1,6 @@
 node_modules
 public
-.env
+./.env
 #logs
 ./src/logs
 # testing
@@ -15,7 +15,7 @@ public
 /translations
 
 # misc
-.idea/
+./.idea/
 .idea/workspace.xml
 .DS_Store
 
