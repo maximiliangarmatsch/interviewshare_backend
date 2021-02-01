@@ -8,10 +8,7 @@ exports.SignUp = (req, res, next) => {
     email,
     password,
     name,
-    address,
-    countryId,
-    city,
-    vat
+    role
   } = req.body
   if (!email || !password) {
     res.status(422).json({ error: 'Email or Password not provided' })

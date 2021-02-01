@@ -2,6 +2,5 @@ const { SignUp: RegisterCompany } = require('../../Authentication/SignupCompany/
 const { SignUp: RegisterCandidate } = require('../../Authentication/SignupCandidate/signup')
 
 module.exports = function (app) {
-  app.post('/signUp/company', RegisterCompany)
-  app.post('/signUp/candidate', RegisterCandidate)
+  app.post('/oauth2/signUp/user', RegisterCompany)
 }

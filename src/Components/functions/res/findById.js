@@ -1,6 +1,6 @@
 const headerConfig = { 'Content-Type': 'application/json', 'x-hasura-admin-secret': 'CODERCONSULTING' }
 const endPoint = 'https://known-bass-99.hasura.app/v1/graphql'
-const gql = require('./gql')
+const gql = require('../../../Models/queries/findUserById')
 const axios = require('axios')
 
 module.exports = {

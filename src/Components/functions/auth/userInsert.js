@@ -1,33 +1,25 @@
 const axios = require('axios')
-const queryGql = require('../data/validationQuery')
+const insertMutation = require('../../../Authentication/SignupCandidate/data/candidateMutation')
 const headerConfig = { 'Content-Type': 'application/json', 'x-hasura-admin-secret': 'CODERCONSULTING' }
 const endPoint = 'https://known-bass-99.hasura.app/v1/graphql'
 module.exports = {
-  userValidation: async function ajaxSearchAxios (email, callback) {
+  candidateInsert: async (name, email, password, jobTitle, callback) => {
     await axios({
       method: 'POST',
       headers: headerConfig,
       url: endPoint,
       data: {
-        query: queryGql,
+        query: insertMutation,
         variables: {
-          email
+          name,
+          email,
+          password,
+          jobTitle
         }
       },
       responseType: 'json'
     }).then(
-      res => {
-        let valid = false
-        for (const data in res.data.data) {
-          if (res.data.data[data][0] == null) {
-            valid = true
-          } else {
-            valid = false
-          }
-        }
-
-        return callback(null, valid)
-      }
+      res => callback(null, res.data.data.insert_Candidate.returning[0])
     ).catch(err => callback(err, null))
   }
 }

@@ -1,4 +1,4 @@
-const { SENDGRID_API_KEY } = require('../../Config/settings')
+const { SENDGRID_API_KEY } = require('../../../Config/settings')
 const isaMail = require('@sendgrid/mail')
 isaMail.setApiKey(SENDGRID_API_KEY)
 const sendMail = async (msg) => {
