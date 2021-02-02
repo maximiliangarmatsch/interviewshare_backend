@@ -9,7 +9,8 @@ const errorHandler = require('./Components/Error/errorhandler')
 const fileUpload = require('express-fileupload')
 const bodyParser = require('body-parser')
 const FileStore = require('session-file-store')(session)
-const secret = require('./Authentication/Secrets/generateSecret')
+const secret = require('./Components/functions/res/generateSecret')
+
 
 const app = express()
 app.use(session({

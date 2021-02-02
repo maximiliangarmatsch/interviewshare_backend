@@ -22,7 +22,7 @@ module.exports = {
       },
       responseType: 'json'
     }).then(
-      res => callback(null, res.data.data.insert_Employer.returning[0])
+      res => callback(null, res.data.data.isa_User.returning[0])
     ).catch(err => callback(err, null))
   }
 }

@@ -1,10 +1,10 @@
 const axios = require('axios')
-const insertMutation = require('../../../Authentication/SignupCandidate/data/candidateMutation')
+const insertMutation = require('../../../Models/mutations/registerUser')
 const headerConfig = { 'Content-Type': 'application/json', 'x-hasura-admin-secret': 'CODERCONSULTING' }
 const endPoint = 'https://known-bass-99.hasura.app/v1/graphql'
 module.exports = {
-  candidateInsert: async (name, email, password, jobTitle, callback) => {
-    await axios({
+  userInsert: async (name, email, password, role, callback) => {
+    axios({
       method: 'POST',
       headers: headerConfig,
       url: endPoint,
@@ -14,12 +14,12 @@ module.exports = {
           name,
           email,
           password,
-          jobTitle
+          role
         }
       },
       responseType: 'json'
     }).then(
-      res => callback(null, res.data.data.insert_Candidate.returning[0])
+      res => callback( null , res.data.data.insert_isa_User.returning[0])
     ).catch(err => callback(err, null))
   }
 }

@@ -5,7 +5,7 @@ module.exports = (`
         $password: String!
         $role: uuid!
     ) {
-        isa_User(
+        insert_isa_User(
             objects: {
                 name: $name
                 email: $email
@@ -14,7 +14,6 @@ module.exports = (`
             }
         ) {
             returning {
-                name
                 id
             }
         }

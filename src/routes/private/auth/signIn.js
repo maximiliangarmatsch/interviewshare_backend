@@ -1,6 +1,6 @@
-const { signIn: CompanySignIn } = require('../../Authentication/LoginCompany/signIn')
-const { signIn: CandidateSignIn } = require('../../Authentication/LoginCandidate/signIn')
-require('../../Middleware/passport')
+const { signIn: CompanySignIn } = require('../../../Authentication/LoginCompany/signIn')
+const { signIn: CandidateSignIn } = require('../../../Authentication/LoginCandidate/signIn')
+require('../../../Middleware/passport')
 const passport = require('passport')
 
 const isCandidatePresent = passport.authenticate('candidate', { session: false })

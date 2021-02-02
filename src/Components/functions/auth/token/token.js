@@ -2,41 +2,51 @@ const config = require('../../../../Config/settings')
 const jwt = require('jsonwebtoken')
 const tokenList = {}
 
-function tokenForUser (userId) {
+function tokenForUser (userId, sessionId) {
   const timeStamp = new Date().getTime()
-  const payload = { sub: userId, iat: timeStamp }
-  const token = jwt.sign(payload, config.secret, { expiresIn: Math.floor(Date.now() / 1000) + (15), issuer: 'interviewshare.com', audience: toString(userId) })
-  const refreshToken = jwt.sign(payload, config.refreshTokenSecret, { expiresIn: Math.floor(Date.now() / 1000) + (60 * 60), issuer: 'interviewshare.com', audience: toString(userId) })
+  const expiresIn = Math.floor(Date.now() / 1000) + (60 * 60)
+  const issuer = 'interviewshare.de'
+  const audience = toString(userId) + toString(sessionId) 
+  const payload = { 
+    sub: userId, 
+    iss : issuer, 
+    aud: audience,
+    nonce: sessionId,
+    auth_time: timeStamp,  
+    iat: timeStamp,
+    exp: expiresIn }
+  const access_token = jwt.sign(payload, config.secret)
+  const refresh_Token = jwt.sign(payload, config.refreshTokenSecret)
   const access = {
-    token,
-    refreshToken
+    access_token,
+    refresh_Token
   }
-  tokenList[refreshToken] = access
+  tokenList[refresh_Token] = access
 
   return access
 }
 module.exports = {
   tokenForUser: tokenForUser,
-  issueToken: function (req, res, next) {
-    const user = req.body.userId
-    const { refreshToken } = req.body
-    const storedRefreshToken = tokenList[refreshToken].refreshToken
-    if (storedRefreshToken === refreshToken) {
-      jwt.verify(refreshToken, config.refreshTokenSecret, (err, decoded) => {
-        if (err) {
-          console.log(err.message)
-        }
-        if (decoded.sub === user) {
-          tokenList[refreshToken] = ''
-          const tokenSet = tokenForUser(decoded.sub)
-          res.json({ user, token: tokenSet.token, refreshToken: tokenSet.refreshToken })
-        } else {
-          res.status(403).json({ error: 'Unauthorized Access' })
-        }
-      })
-    } else {
-      res.status(403).json({ error: 'Unauthorized Access' })
-    }
-  }
+  // issueToken: function (req, res, next) {
+  //   const user = req.body.userId
+  //   const { refresh_Token } = req.body
+  //   const storedrefreshToken = tokenList[refresh_Token].refresh_Token
+  //   if (storedrefreshToken === refresh_Token) {
+  //     jwt.verify(refresh_Token, config.refresh_TokenSecret, (err, decoded) => {
+  //       if (err) {
+  //         console.log(err.message)
+  //       }
+  //       if (decoded.sub === user) {
+  //         tokenList[refresh_Token] = ''
+  //         const tokenSet = tokenForUser(decoded.sub)
+  //         res.json({ user, token: tokenSet.access_token, refresh_Token: tokenSet.refresh_Token })
+  //       } else {
+  //         res.status(403).json({ error: 'Unauthorized Access' })
+  //       }
+  //     })
+  //   } else {
+  //     res.status(403).json({ error: 'Unauthorized Access' })
+  //   }
+  // }
 
 }
