@@ -14,7 +14,10 @@ module.exports = (`
             }
         ) {
             returning {
-                id
+                id,
+                name,
+                email,
+                secret
             }
         }
     }  

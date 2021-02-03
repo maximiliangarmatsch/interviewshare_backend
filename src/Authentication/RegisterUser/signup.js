@@ -3,7 +3,7 @@ const {getRoleId} =require('../../Components/functions/auth/getIdByRole')
 const { userInsert } = require('../../Components/functions/auth/userInsert')
 const { encrypt } = require('../../Components/functions/res/encrypt')
 const { tokenForUser } = require('../../Components/functions/auth/token/token')
-const { mail } = require('../../Components/functions/email/emailer')
+const { emailConfirmation } = require('../../Components/functions/email/emailer')
 
 exports.registerUser = async (req, res, next) => {
   const session = req.sessionID
@@ -34,11 +34,10 @@ exports.registerUser = async (req, res, next) => {
             if (err) {
               res.status(500).json({ error: err.message })
               return;
-            }else{
+            }
             const tokenSet = tokenForUser(response.id,session)
+            emailConfirmation(response.name, response.email, response.secret)
             res.status(200).json({ user: response.id, token: tokenSet.access_token, refreshToken: tokenSet.refresh_Token })
-            mail(email, 'Welcome To Interview Share App')
-          }
           })
         })})
       } else {
