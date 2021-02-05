@@ -11,7 +11,6 @@ const bodyParser = require('body-parser')
 const FileStore = require('session-file-store')(session)
 const secret = require('./Components/functions/res/generateSecret')
 
-
 const app = express()
 app.use(session({
   genid: (req) => {

@@ -1,4 +1,4 @@
-const authRouter = require('./private/auth/router')
+const authRouter = require('./private/auth/auth.router')
 // const protectedRoutes = require('../protectedRoutes/protected')
 // const thirdParty = require('./public/thirdParty/api')
 // const pdf = require('./pdf/pdf')
@@ -12,4 +12,4 @@ module.exports = function (app) {
   // pdf(app)
   // csv(app)
   // upload(app)
-} 
+}

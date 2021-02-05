@@ -6,15 +6,16 @@ function tokenForUser (userId, sessionId) {
   const timeStamp = new Date().getTime()
   const expiresIn = Math.floor(Date.now() / 1000) + (60 * 60)
   const issuer = 'interviewshare.de'
-  const audience = toString(userId) + toString(sessionId) 
-  const payload = { 
-    sub: userId, 
-    iss : issuer, 
+  const audience = toString(userId) + toString(sessionId)
+  const payload = {
+    sub: userId,
+    iss: issuer,
     aud: audience,
     nonce: sessionId,
-    auth_time: timeStamp,  
+    auth_time: timeStamp,
     iat: timeStamp,
-    exp: expiresIn }
+    exp: expiresIn
+  }
   const access_token = jwt.sign(payload, config.secret)
   const refresh_Token = jwt.sign(payload, config.refreshTokenSecret)
   const access = {
@@ -26,7 +27,7 @@ function tokenForUser (userId, sessionId) {
   return access
 }
 module.exports = {
-  tokenForUser: tokenForUser,
+  tokenForUser: tokenForUser
   // issueToken: function (req, res, next) {
   //   const user = req.body.userId
   //   const { refresh_Token } = req.body

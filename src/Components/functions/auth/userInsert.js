@@ -19,7 +19,7 @@ module.exports = {
       },
       responseType: 'json'
     }).then(
-      res => callback( null , res.data.data.insert_isa_User.returning[0])
+      res => callback(null, res.data.data.insert_isa_User.returning[0])
     ).catch(err => callback(err, null))
   }
 }

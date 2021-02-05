@@ -1,6 +1,6 @@
 const OAuth2Error = require('./oauth2Base')
 
-function AuthorizationError (message, code, uri, status,res) {
+function AuthorizationError (message, code, uri, status, res) {
   if (!status) {
     switch (code) {
       case 'invalid_request': status = 400; break
@@ -11,7 +11,7 @@ function AuthorizationError (message, code, uri, status,res) {
       case 'temporarily_unavailable': status = 503; break
     }
   }
-  res.status(status).json({error: this.name + " " + code,message: message})
+  res.status(status).json({ error: this.name + ' ' + code, message: message })
 
   OAuth2Error.call(this, message, code, uri, status)
   Error.captureStackTrace(this, arguments.callee)
