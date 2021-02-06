@@ -5,11 +5,11 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const Routes = require('./routes/router')
-const errorHandler = require('./Components/Error/errorhandler')
+const errorHandler = require('./Library/Error/errorhandler')
 const fileUpload = require('express-fileupload')
 const bodyParser = require('body-parser')
 const FileStore = require('session-file-store')(session)
-const secret = require('./Components/functions/res/generateSecret')
+const secret = require('./Library/functions/res/generateSecret')
 
 const app = express()
 app.use(session({
@@ -31,11 +31,7 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(cors())
-app.get('/', (req, res) => {
-  console.log('Inside the homepage callback function')
-  console.log(req.sessionID)
-  res.send('You got home page!\n')
-})
+
 Routes(app)
 errorHandler(app)
 

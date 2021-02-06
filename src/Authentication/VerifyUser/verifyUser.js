@@ -1,5 +1,5 @@
-const { getUserIdBySecret, setUserAsVerified } = require('../../Components/functions/auth/verifyUser')
-const { welcomeEmail } = require('../../Components/functions/email/emailer')
+const { getUserIdBySecret, setUserAsVerified } = require('../../Library/functions/auth/verifyUser')
+const { welcomeEmail } = require('../../Library/functions/email/emailer')
 exports.verifyUser = (req, res, next) => {
   const confirmationCode = req.params.confirmationCode
   getUserIdBySecret(confirmationCode, (err, id) => {

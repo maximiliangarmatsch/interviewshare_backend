@@ -15,9 +15,10 @@ module.exports = (`
         ) {
             returning {
                 id,
-                name,
-                email,
-                secret
+                secret,
+                userType:isa_User_Type{
+                    role:user_Role
+                  }
             }
         }
     }  

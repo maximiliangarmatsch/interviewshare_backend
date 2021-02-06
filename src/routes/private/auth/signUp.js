@@ -1,6 +1,7 @@
-const { SignUp: RegisterCompany } = require('../../../Authentication/RegisterUser/signup')
-const { SignUp: RegisterCandidate } = require('../../../Authentication/SignupCandidate/signup')
+const router = require("express").Router();
+const {registerUser} = require('../../../Authentication/RegisterUser/signup')
+const {addRegReqValidation:reqValidation} =require('../../../Middleware/Validation/Register/register.validation')
 
-module.exports = function (app) {
-  app.post('/oauth2/signUp/user', RegisterCompany)
-}
+router.post('/register', reqValidation,registerUser)
+
+module.exports = router;

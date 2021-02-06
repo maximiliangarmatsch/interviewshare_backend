@@ -2,20 +2,22 @@ const config = require('../../../../Config/settings')
 const jwt = require('jsonwebtoken')
 const tokenList = {}
 
-function tokenForUser (userId, sessionId) {
-  const timeStamp = new Date().getTime()
+function tokenForUser (userId, sessionId, role) {
+  // const timeStamp = new Date().getTime()
   const expiresIn = Math.floor(Date.now() / 1000) + (60 * 60)
   const issuer = 'interviewshare.de'
-  const audience = toString(userId) + toString(sessionId)
+  const audience = userId.toString() + sessionId.toString()
   const payload = {
     sub: userId,
     iss: issuer,
     aud: audience,
     nonce: sessionId,
-    auth_time: timeStamp,
-    iat: timeStamp,
-    exp: expiresIn
-  }
+    exp: expiresIn,
+    "https://hasura.io/jwt/claims": {
+    "x-hasura-allowed-roles": ["anonymous","admin","candidate", "company"],
+    "x-hasura-default-role": role,
+    "x-hasura-user-id": userId.toString()
+  }}
   const access_token = jwt.sign(payload, config.secret)
   const refresh_Token = jwt.sign(payload, config.refreshTokenSecret)
   const access = {

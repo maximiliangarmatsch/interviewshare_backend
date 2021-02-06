@@ -1,13 +1,12 @@
-const { isUserPresent } = require('../../Components/functions/auth/isUserPresent')
-const { getRoleId } = require('../../Components/functions/auth/getIdByRole')
-const { userInsert } = require('../../Components/functions/auth/userInsert')
-const { encrypt } = require('../../Components/functions/res/encrypt')
-const { tokenForUser } = require('../../Components/functions/auth/token/token')
-const { emailConfirmation } = require('../../Components/functions/email/emailer')
+const { isUserPresent } = require('../../Library/functions/auth/isUserPresent')
+const { getRoleId } = require('../../Library/functions/auth/getIdByRole')
+const { userInsert } = require('../../Library/functions/auth/userInsert')
+const { encrypt } = require('../../Library/functions/res/encrypt')
+const { tokenForUser } = require('../../Library/functions/auth/token/token')
+const { emailConfirmation } = require('../../Library/functions/email/emailer')
 
 exports.registerUser = async (req, res, next) => {
-  const session = req.sessionID
-  console.log(session)
+  const sessionId = req.sessionID
   const {
     email,
     password,
@@ -29,14 +28,14 @@ exports.registerUser = async (req, res, next) => {
             return
           }
           encrypt(password, (hash) => {
-            userInsert(name, email, hash, id, (err, response) => {
+            userInsert(name, email, hash, id, (err, data) => {
               if (err) {
                 res.status(500).json({ error: err.message })
                 return
               }
-              const tokenSet = tokenForUser(response.id, session)
-              emailConfirmation(response.name, response.email, response.secret)
-              res.status(200).json({ user: response.id, token: tokenSet.access_token, refreshToken: tokenSet.refresh_Token })
+              const tokenSet = tokenForUser(data.id, sessionId, data.userType.role)
+              emailConfirmation(name, email, data.secret)
+              res.status(200).json({ user: data.id, token: tokenSet.access_token, refreshToken: tokenSet.refresh_Token })
             })
           })
         })
