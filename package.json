@@ -27,8 +27,6 @@
     "express-session": "^1.17.1",
     "fs": "^0.0.1-security",
     "googleapis": "39",
-    "graphql": "^15.5.0",
-    "graphql-tag": "^2.11.0",
     "http-errors": "~1.6.3",
     "json2csv": "^5.0.3",
     "jsonwebtoken": "^8.5.1",

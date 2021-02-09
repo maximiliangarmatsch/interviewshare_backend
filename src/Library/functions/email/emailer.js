@@ -18,7 +18,7 @@ const sendMail = async (msg) => {
 }
 
 module.exports = {
-  welcomeEmail: function (userEmail) {
+  welcomeEmail:  (userEmail) =>{
     const msg = {
       to: userEmail,
       from: 'no-reply@interviewshare.de',
@@ -27,16 +27,7 @@ module.exports = {
     }
     sendMail(msg)
   },
-  //   passwordReset: function () {
-  //     const msg = {
-  //       to: 'umer1807F@aptechsite.net',
-  //       from: 'Interview Share<no-reply@interviewshare.de>', // Use the email address or domain you verified above
-  //       subject: 'Welcome To Interview Share App',
-  //       template_id: 'd-a62eeb33d2b04d148417e22d30da5495'
-  //     }
-  //     sendMail(msg)
-  //   },
-  emailConfirmation: function (name, email, confirmationCode) {
+  emailConfirmation:  (name, email, confirmationCode)=> {
     const msg = {
       to: email.toString(),
       from: 'no-reply@interviewshare.de', // Use the email address or domain you verified above
@@ -50,5 +41,20 @@ module.exports = {
 
     }
     sendMail(msg)
-  }
+  },
+  passwordResetEmail: ( email, id, secret) => {
+    const code = id.toString() + "*/-ISA-@21*" + secret.toString()
+    const msg = {
+      to: email.toString(),
+      from: 'no-reply@interviewshare.de', // Use the email address or domain you verified above
+      subject: 'Email Confirmation Interview Share',
+      html: `<center>
+              <h1><strong>You Requested To ResetPassword</strong></h1>
+              
+              <p>Click the link down below to reset your password</p>
+              <a href=http://localhost:4000/api/auth/resetPassword/${code}> Click here</a>
+           </center>`
+    }
+    sendMail(msg)
+  },
 }

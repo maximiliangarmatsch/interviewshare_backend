@@ -16,7 +16,7 @@ app.use(session({
   genid: (req) => {
     console.log('Inside the session middleware')
     console.log(req.sessionID)
-    return uuid() // use UUIDs for session IDs
+    return uuid()
   },
   store: new FileStore(),
   secret: secret.toString(),
