@@ -1,4 +1,4 @@
-module.exports =(`mutation( 
+module.exports = (`mutation( 
     $id: uuid!                                
     $secret: uuid!
     $password: String!) {

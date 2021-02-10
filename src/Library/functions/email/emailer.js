@@ -18,7 +18,7 @@ const sendMail = async (msg) => {
 }
 
 module.exports = {
-  welcomeEmail:  (userEmail) =>{
+  welcomeEmail: (userEmail) => {
     const msg = {
       to: userEmail,
       from: 'no-reply@interviewshare.de',
@@ -27,7 +27,7 @@ module.exports = {
     }
     sendMail(msg)
   },
-  emailConfirmation:  (name, email, confirmationCode)=> {
+  emailConfirmation: (name, email, confirmationCode) => {
     const msg = {
       to: email.toString(),
       from: 'no-reply@interviewshare.de', // Use the email address or domain you verified above
@@ -42,8 +42,8 @@ module.exports = {
     }
     sendMail(msg)
   },
-  passwordResetEmail: ( email, id, secret) => {
-    const code = id.toString() + "*/-ISA-@21*" + secret.toString()
+  passwordResetEmail: (email, id, secret) => {
+    const code = id.toString() + '*/-ISA-@21*' + secret.toString()
     const msg = {
       to: email.toString(),
       from: 'no-reply@interviewshare.de', // Use the email address or domain you verified above
@@ -56,5 +56,5 @@ module.exports = {
            </center>`
     }
     sendMail(msg)
-  },
+  }
 }

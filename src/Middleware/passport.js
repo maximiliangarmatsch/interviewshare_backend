@@ -3,59 +3,30 @@ const config = require('../Config/settings')
 const JwtStrategy = require('passport-jwt').Strategy
 const { ExtractJwt } = require('passport-jwt')
 const LocalStrategy = require('passport-local')
-const { checkUser: checkCandidate } = require('../Authentication/LoginCandidate/functions/checkUser')
-const { checkUser: checkCompany } = require('../Authentication/LoginCompany/functions/checkUser')
-const { compare } = require('../Components/comparePassword')
-const { findById } = require('../Components/findById/findById')
-// Local options
+const { checkUser } = require('../Library/functions/auth/getUserByEmail')
+const { compare } = require('../Library/functions/res/compare')
+// const { findById } = require('../Components/findById/findById')
+
 const localOptions = {
   usernameField: 'email'
 }
-// Candidate Local Login Strategy
-const candidateLogin = new LocalStrategy(localOptions, (email, password, done) => {
-  checkCandidate(email, (err, data) => {
-    if (err && data == null) {
+const userLogin = new LocalStrategy(localOptions, (email, password, done) => {
+  checkUser(email, (err, user) => {
+    if (err || user == null || user === undefined) {
       return done(err, false)
     }
-    if (err) {
-      return done(err, false)
-    }
-    if (data[0] === undefined || data[0] === null) {
+    if (user === undefined || user === null) {
       return done(null, false)
     }
-    const hash = data[0].password
-    compare(password, hash, (err, isMatch) => {
-      if (err) {
-        return done(err)
-      }
-      if (!isMatch) {
-        return done(null, false)
-      }
-      const { id } = data[0]
-      return done(null, id)
-    })
-  })
-})
-// Company Local Login Strategy
-const companyLogin = new LocalStrategy(localOptions, (email, password, done) => {
-  checkCompany(email, (err, data) => {
-    if (err && data == null) {
-      return done(err, false)
-    }
-    if (err) {
-      return done(err, false)
-    }
-    if (data[0] === undefined || data[0] === null) {
-      return done(null, false)
-    }
-    const hash = data[0].password
+    const id  = user.id
+    const hash = user.password
     compare(password, hash, (err, isMatch) => {
       if (err) { return done(err) }
       if (!isMatch) {
         return done(null, false)
+      }else {
+        return done(null, id)
       }
-      const { id } = data[0]
-      return done(null, id)
     })
   })
 })
@@ -79,5 +50,4 @@ const jwtLogin = new JwtStrategy(jwtOptions, (payload, done) => {
 })
 
 passport.use('jwt', jwtLogin)
-passport.use('candidate', candidateLogin)
-passport.use('company', companyLogin)
+passport.use('user', userLogin)

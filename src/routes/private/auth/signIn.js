@@ -1,12 +1,9 @@
-const { signIn: CompanySignIn } = require('../../../Authentication/LoginCompany/signIn')
-const { signIn: CandidateSignIn } = require('../../../Authentication/LoginCandidate/signIn')
 require('../../../Middleware/passport')
+const router = require('express').Router()
 const passport = require('passport')
+const { login } = require('../../../Authentication/LoginCompany/signIn')
 
-const isCandidatePresent = passport.authenticate('candidate', { session: false })
-const isCompanyPresent = passport.authenticate('company', { session: false })
+const isUserPresent = passport.authenticate('user', { session: false })
+router.post('/login', isUserPresent, login)
 
-module.exports = function (app) {
-  app.post('/signIn/company', isCompanyPresent, CompanySignIn)
-  app.post('/signIn/candidate', isCandidatePresent, CandidateSignIn)
-}
+module.exports = router

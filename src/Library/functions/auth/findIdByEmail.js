@@ -3,7 +3,7 @@ const query = require('../../../Models/queries/FindUserByEmail')
 const headerConfig = { 'Content-Type': 'application/json', 'x-hasura-admin-secret': 'CODERCONSULTING' }
 const endPoint = 'https://known-bass-99.hasura.app/v1/graphql'
 module.exports = {
-  getUserId: async (role, callback) => {
+  getUserId: (email, callback) => {
     axios({
       method: 'POST',
       headers: headerConfig,
