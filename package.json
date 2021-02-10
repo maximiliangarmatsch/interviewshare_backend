@@ -13,7 +13,7 @@
     "@babel/polyfill": "^7.11.5",
     "@hapi/joi": "^17.1.1",
     "@sendgrid/mail": "^7.4.2",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "bcrypt-node": "^0.1.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
