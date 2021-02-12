@@ -17,14 +17,17 @@ module.exports = {
         })
       } if (user) {
         passwordResetEmail(user.email, user.id, user.secret)
+        res.status(200).json({
+          status: 200,
+          code: 'ok'
+        })
       }
     })
   },
   resetPassword: (req, res, next) => {
-    const password = req.params.password
-    const code = req.params.code
-    const id = code.split('*/-ISA-@21*')[0]
-    const secret = code.split('*/-ISA-@21*')[1]
+    const password = req.query.password
+    const id =req.query.code.split('*/-ISA-@21*')[0]
+    const secret = req.query.code.split('*/-ISA-@21*')[1]
     encrypt(password, (hash) => {
       saveNewPass(id, hash, secret, (err, saved) => {
         if (err || !saved) {

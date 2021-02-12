@@ -18,14 +18,16 @@ const userLogin = new LocalStrategy(localOptions, (email, password, done) => {
     if (user === undefined || user === null) {
       return done(null, false)
     }
-    const id  = user.id
+    const id = user.id
     const hash = user.password
     compare(password, hash, (err, isMatch) => {
-      if (err) { return done(err) }
-      if (!isMatch) {
+      if (err) {
+         return done(err,false) 
+        }
+      if (!isMatch) { 
         return done(null, false)
-      }else {
-        return done(null, id)
+      } else {
+       return done(null, id)
       }
     })
   })

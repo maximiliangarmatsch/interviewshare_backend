@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt-node')
 module.exports = {
-  encrypt:  (password, callback) => {
+  encrypt: (password, callback) => {
     bcrypt.genSalt(10, (err, salt) => {
       if (err) {
         return next(err)
