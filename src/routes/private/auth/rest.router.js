@@ -4,5 +4,5 @@ const { resetRequest, resetPassword } = require('../../../Authentication/ResetPa
 
 router.get('/confirm/:confirmationCode', verifyUser)
 router.post('/resetRequest', resetRequest)
-router.post('/resetPassword/:code', resetPassword)
+router.post('/resetPassword/', resetPassword)
 module.exports = router
